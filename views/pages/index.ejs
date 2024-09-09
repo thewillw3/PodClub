@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>PodClub — Shifting the Housing Paradigm!</title>
+
+        <%- include('../partials/head.ejs') %>
+    </head>
+    <body>
+        <%- include('../partials/header.ejs') %>
+
+        <div class="container">
+            <h2>Is PodClub right for you?</h2>
+            <p>Use our advanced tool by entering your name and we'll find out for you!</p>
+            <form>
+                <input id="nameField" type="text" placeholder="Enter your name...">
+                <button type="submit"><img src="imgs/icons/send.svg"></button>
+            </form>
+
+            <!-- Goku! -->
+            <img src="imgs/goku.png" id="goku">
+        </div>
+
+        <div class="container">
+            <h2>Join the revolution with PodClub</h2>
+            <p>
+                Housing — a human need that is becoming exponentially out of reach for many of us. We need a solution. What we need are pods. 
+                That's why we founded PodClub: a company looking to redefine and revolutionize the housing market of today. 
+                We pride ourselves on being able to provide affordable housing at a fraction of the cost through minimizing the housing profile 
+                — cutting the fat so to speak — all while maximizing sustainability, functionality, and comfort. 
+                More importantly, PodClub is a community of like-minded individuals who want to bring success to themselves and those around them. 
+                Join the movement to a more eco-friendly and efficient way to live by signing up today!
+            </p>
+        </div>
+
+        <div class="container">
+            <h2>Housing & Ammenities</h2>
+            <p>
+                Our pods are state-of-the-art and designed with eco-friendly materials. Each pod boasts 1,784 liters of space for its tenant, as well as coming pre-furbished with a bed that includes storage. 
+                Each pod can be customized with a bookshelf at an additional cost. Personalized curtains are provided at an additional $50 fee. Strict no pet policy.
+                
+                <br><br>
+
+                PodClub also contains a subscription service for the following ammenties:
+            </p>
+            <ul>
+                <li>Communal Watering Hole</li>
+                <li>Public Bathrooms & Showers</li>
+                <li>Local Internet Café</li>
+            </ul>
+            <p class="disclaimer">
+                * PodClub will use a portion of your electrical utilities to power its massive crypto farm in Wyoming.
+            </p>
+        </div>
+
+        <div class="container">
+            <h2>Testimonials</h2>
+
+            <ul id="testimony">
+                <% reviews.forEach((review) => { %>
+                <li><%= review %></li>
+                <% }); %>
+            </ul>
+        </div>
+
+        <audio id="streetSpirit" src="sounds/streetspirit.mp3" muted="muted"></audio>
+    </body>
+</html>
