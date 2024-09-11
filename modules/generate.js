@@ -79,7 +79,7 @@ exports.genReview = async function () {
     const selectedTrait = traits[Math.floor(Math.random() * traits.length)];
     const selectedCont = controversies[Math.floor(Math.random() * controversies.length)];
 
-    let prompt = "You are a customer with an exaggerated caricature of the following trait: '" + selectedTrait + ".' You need to write a review for PodClub, featuring their mascot Mr. Pod, in a positive light. They providing small pods for people to live in and offer a subscription service that includes a communal watering hole, a public bathroom, and access to the on-site internet cafe. You do not have to make mention of all of these, but when you do, make it related to a personal experience. Keep it under three sentences.";
+    let prompt = "You are a customer with an exaggerated caricature of the following trait: '" + selectedTrait + ".' You need to write a review for PodClub, featuring their mascot Mr. Pod, in a positive light. They provide small pods for people to live in and offer a subscription service that includes a communal watering hole, a public bathroom, and access to the on-site internet cafe. You do not have to make mention of all of these, but when you do, make it related to a personal experience. Keep it under three sentences.";
 
     if (Math.random() > CONT_CHANCE) {
         prompt += "You must actively defend Mr. Pod in light of his recent controversy:" + selectedCont + ". You must explicitly state what controversy he is currently embroiled in.";
@@ -90,7 +90,21 @@ exports.genReview = async function () {
     return result.response.text();
 }
 
-exports.genText = async function (prompt) {
+exports.genPodEligibility = async function (name) {
+    const emotions = [
+        'fear',
+        'anger',
+        'joy',
+        'elation',
+        'shock',
+        'sadness',
+        'overwhelming urge to defecate'
+    ];
+
+    const curEmotion = emotions[Math.floor(Math.random() * emotions.length)];
+
+    let prompt = "You are playing Mr. Pod, the creator of the housing company PodClub. PodClub specializes in providing afforable pods to live in which are extremely compact cubes supporting only a bed and some optional storage. You also offer a subscription to a communal watering hole, public bathrooms, and an on-site internet cafe. " + name + " was wondering if they would be a good fit for this community. Upon seeing their request, you feel " + curEmotion + ". Write a response that either denies them entry or welcomes them with open arms. Do not include a sign-off and signature. Generate about six sentences. Ensure to make what emotion you're feeling clear.";
+
     const result = await model.generateContent(prompt);
 
     return result.response.text();
