@@ -1,5 +1,5 @@
 const {GoogleGenerativeAI, HarmBlockThreshold, HarmCategory} = require("@google/generative-ai");
-const googlekey = "AIzaSyC2xfwq36PMTKk_la7o3AZGDloWuSqzblM";
+const googlekey = process.env.GOOGLE_KEY;
 
 // Configuring the AI bot.
 const safetySettings = [
