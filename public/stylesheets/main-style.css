@@ -201,6 +201,30 @@ form img {
     margin-left: 0;
 }
 
+/* Letter formatting. */
+#letter {
+    position: fixed;
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+
+    top: 0;
+    left: 0;
+
+    background-color: #e9ebf5;
+    color: black;
+
+    width: 50vw;
+    height: 50vh;
+
+    padding: 16px;
+}
+
+#end {
+    text-align: right;
+}
+
 /* Miscellaneous additions. */
 #pageCover {
     position: fixed;

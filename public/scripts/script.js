@@ -9,7 +9,7 @@ $(function() {
     });
 
     socket.on('NameReceive', (data) => {
-        console.log(`${data}`);
+        createLetter(data[0], data[1]);
     });
 
     // This section of code is dedicated to gags.

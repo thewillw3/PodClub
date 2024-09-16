@@ -22,3 +22,15 @@ function coverPage() {
 function uncoverPage() {
     $('#pageCover').remove();
 }
+
+function createLetter(name, data) {
+    let letter = $('<div id="letter"></div>');
+
+    let intro = $('<p id="intro"></p>').text('Dear ' + name + ',');
+    let body = $('<p id="body"></p>').text(data);
+    let end = $('<p id="end"></p>').text('Mr. Pod');
+
+    letter.append([intro, body, end]);
+
+    $('body').append(letter);
+}

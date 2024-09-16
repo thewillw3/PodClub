@@ -47,7 +47,8 @@ io.on('connection', (socket) => {
         console.log(`Incoming message from ${socket.id}: ${data}`);
 
         revGen.genPodEligibility(data).then((result) => {
-            socket.emit('NameReceive', result);
+            // Emitting an array with the user's name and the generated response.
+            socket.emit('NameReceive', [data, result]);
         });
     });
 });
