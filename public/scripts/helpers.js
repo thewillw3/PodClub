@@ -23,8 +23,13 @@ function uncoverPage() {
     $('#pageCover').remove();
 }
 
+/**
+ * A function that will create a letter from Mr. Pod addressed to the user.
+ * @param {string} name - The string containing the user's name.
+ * @param {string} data - The contents of the letter itself.
+ */
 function createLetter(name, data) {
-    let letter = $('<div id="letter"></div>');
+    let letter = $('<div class="fixed-centered" id="letter"></div>');
 
     let intro = $('<p id="intro"></p>').text('Dear ' + name + ',');
     let body = $('<p id="body"></p>').text(data);
@@ -33,4 +38,29 @@ function createLetter(name, data) {
     letter.append([intro, body, end]);
 
     $('body').append(letter);
+}
+
+/**
+ * Create an element that displays an envelope. Once clicked it will display the generated letter.
+ * @param {string} name - The string containing the user's name.
+ * @param {string} data - The contents of the letter itself.
+ */
+function createEnvelope(name, data) {
+    let envelope = $('<img src="../imgs/envelope/envelope.svg" class="fixed-centered" id="envelope">');
+
+    // "Opening" the envelope.
+    envelope.click(() => {
+        // Put line of code to change the image of the envelope once asset is created.
+
+        createLetter(name, data);
+    });
+
+    // Making the envelope slide upwards towards the center of the screen.
+    envelope.css({'top': '300%'});
+
+    setTimeout(() => {
+        envelope.css({'top': '50%'});
+    }, 100);
+
+    $('body').append(envelope);
 }

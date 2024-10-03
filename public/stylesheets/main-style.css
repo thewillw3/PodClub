@@ -201,18 +201,21 @@ form img {
     margin-left: 0;
 }
 
+/* Envelope formatting. */
+#envelope {
+    transition: all 1s ease-in-out;
+}
+
+#envelope:hover {
+    cursor: pointer;
+}
+
 /* Letter formatting. */
 #letter {
-    position: fixed;
     display: flex;
 
     flex-direction: column;
     justify-content: center;
-
-    top: 50%;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
 
     background-color: #e9ebf5;
     color: black;
@@ -250,4 +253,13 @@ form img {
 
 .fade-out {
     opacity: 0;
+}
+
+.fixed-centered {
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
 }
