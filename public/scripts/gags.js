@@ -19,7 +19,7 @@ function genPiccoloImg(time, designation) {
     const MAX_LEFT = 80, MAX_TOP = 70, MIN = 0;
     const LEFT = generateRandInt(MIN, MAX_LEFT), TOP = generateRandInt(MIN, MAX_TOP);
 
-    let img = $('<img>').attr('src', '../imgs/piccolo.jpg').addClass('piccolo');
+    let img = $('<img src="../imgs/piccolo.jpg" class="piccolo">');
     img.attr('id', designation);
     img.css({'top': TOP + 'vh', 'left': LEFT + 'vw'});
 

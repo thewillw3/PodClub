@@ -1,11 +1,11 @@
 // PORT!
 const PORT = 8081;
 
-// Importing modules.
+// Importing all necessities!
 const revGen = require('./modules/generate.js');
-
-// Setting up express.
 const express = require('express');
+const socketio = require('socket.io');
+
 const app = express();
 
 // Setting view engine and serving static files!
@@ -35,5 +35,20 @@ app.get('*', (req, res) => {
 });
 
 // The server is listening! Hello!
-app.listen(PORT);
-console.log(`Server currently listening on port ${PORT}!`);
+const server = app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}!`);
+});
+
+// Setting up socket necessities.
+const io = socketio(server);
+
+io.on('connection', (socket) => {
+    socket.on('NameSubmit', (data) => {
+        console.log(`Incoming message from ${socket.id}: ${data}`);
+
+        revGen.genPodEligibility(data).then((result) => {
+            // Emitting an array with the user's name and the generated response.
+            socket.emit('NameReceive', [data, result]);
+        });
+    });
+});
