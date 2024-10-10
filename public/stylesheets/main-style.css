@@ -182,6 +182,7 @@ form img {
 
 #testimony li {
     display: flex;
+    flex-direction: column;
 
     text-align: center;
 
@@ -190,7 +191,7 @@ form img {
 
     margin-left: 20px;
 
-    padding: 40px;
+    padding: 20px;
     width: 33vw;
 
     background-color: #142638;
@@ -199,6 +200,26 @@ form img {
 
 #testimony li:nth-child(1) {
     margin-left: 0;
+}
+
+#testimony li p {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    
+    min-height: 75%;
+
+    border-radius: 12px;
+    padding: 14px;
+
+    background-color: #2b3452;
+}
+
+#testimony li img {
+    aspect-ratio: 1/1;
+    height: 40px;
+    border-radius: 100px;
 }
 
 /* Envelope formatting. */
@@ -222,6 +243,9 @@ form img {
 
     width: 50vw;
     height: 50vh;
+
+    transform: translate(-50%, -50%) scale(0%);
+    transition: all 1s ease-in-out;
 
     padding: 16px;
 }

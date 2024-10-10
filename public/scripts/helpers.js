@@ -13,6 +13,11 @@ function generateRandInt(min, max) {
  */
 function coverPage() {
     let pageCover = $('<div id="pageCover"></div>');
+
+    setTimeout(() => {
+        pageCover.addClass('fade-in');
+    }, 100);
+
     $('body').append(pageCover);
 }
 
@@ -20,7 +25,11 @@ function coverPage() {
  * Remove the dark cover from the screen and return control to user.
  */
 function uncoverPage() {
-    $('#pageCover').remove();
+    pageCover.removeClass('fade-in').addClass('fade-out');
+
+    setTimeout(() => {
+        $('#pageCover').remove();  
+    }, 500);
 }
 
 /**
@@ -37,6 +46,11 @@ function createLetter(name, data) {
 
     letter.append([intro, body, end]);
 
+    // Making the letter itself expand.
+    setTimeout(() => {
+        letter.css({'transform': 'translate(-50%, -50%) scale(100%)'});
+    }, 100);
+
     $('body').append(letter);
 }
 
@@ -47,7 +61,6 @@ function createLetter(name, data) {
  */
 function createEnvelope(name, data) {
     let envelope = $('<img src="../imgs/envelope/envelope.svg" class="fixed-centered" id="envelope">');
-
     // "Opening" the envelope.
     envelope.click(() => {
         // Put line of code to change the image of the envelope once asset is created.
@@ -62,5 +75,23 @@ function createEnvelope(name, data) {
         envelope.css({'top': '50%'});
     }, 100);
 
+    // Darkening the page when the envelop gets generated.
+    coverPage();
+
+    // Appending the final element to the body.
     $('body').append(envelope);
+}
+
+/**
+ * Removes generated envelope from the screen.
+ */
+function removeEnvelope() {
+    $('#envelope').remove();
+}
+
+/**
+ * Removes the generated letter from the screen.
+ */
+function removeLetter() {
+    $("#letter").remove();
 }
