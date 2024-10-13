@@ -15,7 +15,7 @@ app.use(express.static('public'));
 // Testing things.
 let reviews = [];
 
-for(let i = 0; i < 4; i++) {
+for(let i = 0; i < 3; i++) {
     revGen.genReview().then((review) => {
         reviews.push(review);
     });

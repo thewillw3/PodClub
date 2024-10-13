@@ -64,7 +64,7 @@ header a {
 .container {
     display: block;
 
-    padding: 60px 120px;
+    padding: 150px 19vw;
 
     color: #e9ebf5;
 }
@@ -270,7 +270,7 @@ form img {
 
     background-color: rgba(0, 0, 0, 0.5);
 
-    z-index: 9999;
+    z-index: 10;
 
     transition: opacity 0.5s ease-in-out;
 }
