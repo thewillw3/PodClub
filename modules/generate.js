@@ -116,7 +116,7 @@ exports.genReview = async function () {
         },
         {
             img: "imgs/reviewers/lssj.jpg",
-            trait: "the legendary super saiyan broly"
+            trait: "the legendary super saiyan"
         },
         {
             img: "imgs/reviewers/anime-girl.jpg",
