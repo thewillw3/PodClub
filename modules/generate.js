@@ -62,7 +62,6 @@ exports.genReview = async function () {
 
     const controversies = [
         "homophobia",
-        "child slavery",
         "gave children to infertile homeless people which caused them to die of exposure",
         "ripped a child in half",
         "killed a man in broad daylight in front of a blind man",
@@ -79,7 +78,7 @@ exports.genReview = async function () {
     const selectedTrait = traits[Math.floor(Math.random() * traits.length)];
     const selectedCont = controversies[Math.floor(Math.random() * controversies.length)];
 
-    let prompt = "You are a customer with an exaggerated caricature of the following trait: '" + selectedTrait + ".' You need to write a review for PodClub, featuring their mascot Mr. Pod, in a positive light. They provide small pods for people to live in and offer a subscription service that includes a communal watering hole, a public bathroom, and access to the on-site internet cafe. You do not have to make mention of all of these, but when you do, make it related to a personal experience. Keep it under three sentences.";
+    let prompt = "You are a customer with an exaggerated caricature of the following trait: '" + selectedTrait + ".' You need to write a review for PodClub, featuring their mascot Mr. Pod, in a positive light. They provide small pods for people to live in and offer a subscription service that includes a communal watering hole, a public bathroom, and access to the on-site internet cafe. You do not have to make mention of all of these, but when you do, make it related to a personal experience. Keep it under 200 characters.";
 
     if (Math.random() > CONT_CHANCE) {
         prompt += "You must actively defend Mr. Pod in light of his recent controversy:" + selectedCont + ". You must explicitly state what controversy he is currently embroiled in.";

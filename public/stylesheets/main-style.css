@@ -193,9 +193,9 @@ form img {
 
     padding: 20px;
     width: 33vw;
+    min-height: 40vh;
 
     background-color: #142638;
-    border-radius: 10px;
 }
 
 #testimony li:nth-child(1) {
@@ -208,17 +208,21 @@ form img {
     justify-content: center;
     align-items: center;
     
-    min-height: 75%;
+    min-height: 40%;
 
-    border-radius: 12px;
-    padding: 14px;
-
-    background-color: #2b3452;
+    margin: 10px;
 }
 
 #testimony li img {
     aspect-ratio: 1/1;
-    height: 40px;
+}
+
+.quotes {
+    height: 30px;
+}
+
+.pfp {
+    height: 60px;
     border-radius: 100px;
 }
 

@@ -75,9 +75,6 @@ function createEnvelope(name, data) {
         envelope.css({'top': '50%'});
     }, 100);
 
-    // Darkening the page when the envelop gets generated.
-    coverPage();
-
     // Appending the final element to the body.
     $('body').append(envelope);
 }
