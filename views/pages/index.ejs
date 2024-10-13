@@ -58,8 +58,8 @@
                 <% reviews.forEach((review) => { %>
                 <li>
                     <img class="quotes" src="imgs/icons/quotes.svg">
-                    <p><%= review %></p>
-                    <img class="pfp" src="imgs/piccolo.jpg">
+                    <p><%= review.response %></p>
+                    <img class="pfp" src=<%= review.img %>>
                 </li>
                 <% }); %>
             </ul>

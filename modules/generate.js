@@ -28,36 +28,104 @@ exports.genReview = async function () {
     // Chance that a controversy will be added onto the review.
     const CONT_CHANCE = 0.8;
 
-    // List of possible traits for a reviewer to have and a controversy they must defend Mr. Pod from.
-    const traits = [
-        "evil beyond measure", 
-        "sassy with extra gravy", 
-        "angelic",
-        "chip (only speak in meows)",
-        "pressurized pillow",
-        "crazy mad scientist",
-        "gambling addict",
-        "former united states president",
-        "michelle obama",
-        "a gluttonous slob who moans when typing",
-        "bike pump enthusiast",
-        "concerned economist",
-        "lustful",
-        "anarchist",
-        "evangelical",
-        "mega church pastor",
-        "big chungus",
-        "jimmy fallon",
-        "baby with no object permanence",
-        "tortured artist",
-        "alien who speaks in hieroglyphs",
-        "kanye west",
-        "man being held hostage to write review",
-        "the legendary super saiyan",
-        "a jumped up pantry boy who never knew his place",
-        "a beautiful anime girl who everybody want down to the last molecule",
-        "foot enthusiast",
-        "gynecologist"
+    // List of possible reviewers and a potential controversy they must defend Mr. Pod from.
+    const characters = [
+        {
+            img: "imgs/reviewers/evil.jpg",
+            trait: "evil beyond measure" 
+        },
+        {
+            img: "imgs/reviewers/sassy.jpg",
+            trait: "sassy with extra gravy"
+        },
+        {
+            img: "imgs/reviewers/angelic.jpg",
+            trait: "angelic"
+        },
+        {
+            img: "imgs/reviewers/chip.jpg",
+            trait: "chip (only speak in meows)"
+        },
+        {
+            img: "imgs/reviewers/scientist.jpg",
+            trait: "crazy mad scientist"
+        },
+        {
+            img: "imgs/reviewers/gambler.jpg",
+            trait: "gambling addict"
+        },
+        {
+            img: "imgs/reviewers/michelle.jpg",
+            trait: "michelle obama"
+        },
+        {
+            img: "imgs/reviewers/slob.jpg",
+            trait: "a gluttonous slob who moans when typing"
+        },
+        {
+            img: "imgs/reviewers/bike-pump.jpg",
+            trait: "bike pump enthusiast"
+        },
+        {
+            img: "imgs/reviewers/economist.jpg",
+            trait: "concerned economist"
+        },
+        {
+            img: "imgs/reviewers/lust.jpg",
+            trait: "lustful"
+        },
+        {
+            img: "imgs/reviewers/anarchist.jpg",
+            trait: "anarchist"
+        },
+        {
+            img: "imgs/reviewers/evangelical.jpg",
+            trait: "evangelical"
+        },
+        {
+            img: "imgs/reviewers/pastor.jpg",
+            trait: "mega church pastor"
+        },
+        {
+            img: "imgs/reviewers/chungus.jpg",
+            trait: "big chungus"
+        },
+        {
+            img: "imgs/reviewers/jimmy.jpg",
+            trait: "jimmy fallon"
+        },
+        {
+            img: "imgs/reviewers/baby.jpg",
+            trait: "baby with no object permanence"
+        },
+        {
+            img: "imgs/reviewers/artist.jpg",
+            trait: "tortured artist"
+        },
+        {
+            img: "imgs/reviewers/alien.gif",
+            trait: "alien who speaks in hieroglyphs"
+        },
+        {
+            img: "imgs/reviewers/kanye.jpg",
+            trait: "kanye west"
+        },
+        {
+            img: "imgs/reviewers/hostage.jpg",
+            trait: "man being held hostage to write review"
+        },
+        {
+            img: "imgs/reviewers/lssj.jpg",
+            trait: "the legendary super saiyan broly"
+        },
+        {
+            img: "imgs/reviewers/anime-girl.jpg",
+            trait: "a beautiful anime girl who everybody want down to the last molecule"
+        },
+        {
+            img: "imgs/reviewers/foot.jpg",
+            trait: "foot enthusiast"
+        }
     ];
 
     const controversies = [
@@ -75,10 +143,10 @@ exports.genReview = async function () {
     ];
 
     // Getting a random trait and controversy.
-    const selectedTrait = traits[Math.floor(Math.random() * traits.length)];
+    const selectedChar = characters[Math.floor(Math.random() * characters.length)];
     const selectedCont = controversies[Math.floor(Math.random() * controversies.length)];
 
-    let prompt = "You are a customer with an exaggerated caricature of the following trait: '" + selectedTrait + ".' You need to write a review for PodClub, featuring their mascot Mr. Pod, in a positive light. They provide small pods for people to live in and offer a subscription service that includes a communal watering hole, a public bathroom, and access to the on-site internet cafe. You do not have to make mention of all of these, but when you do, make it related to a personal experience. Keep it under 200 characters.";
+    let prompt = "You are a customer with an exaggerated caricature of the following trait: '" + selectedChar.trait + ".' You need to write a review for PodClub, featuring their mascot Mr. Pod, in a positive light. They provide small pods for people to live in and offer a subscription service that includes a communal watering hole, a public bathroom, and access to the on-site internet cafe. You do not have to make mention of all of these, but when you do, make it related to a personal experience. Keep it under 200 characters.";
 
     if (Math.random() > CONT_CHANCE) {
         prompt += "You must actively defend Mr. Pod in light of his recent controversy:" + selectedCont + ". You must explicitly state what controversy he is currently embroiled in.";
@@ -86,7 +154,12 @@ exports.genReview = async function () {
     
     const result = await model.generateContent(prompt);
 
-    return result.response.text();
+    finalChar = {
+        response: result.response.text(),
+        img: selectedChar.img
+    }
+
+    return finalChar;
 }
 
 exports.genPodEligibility = async function (name) {
