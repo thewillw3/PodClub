@@ -2,10 +2,22 @@
  * Randomly display Goku on the main banner of the site.
  */
 function showGoku() {
-    const GOKU_CHANCE = 0.9;
+    const GOKU_CHANCE = 0.1;
+    const COIN_FLIP = 0.5;
 
-    if (Math.random() > GOKU_CHANCE) {
+    if (Math.random() < GOKU_CHANCE) {
         $('#goku').css({'display': 'inline'});
+
+        // Making Goku flip a coin when clicked!
+        $('#goku').click(() => {
+            if (Math.random() > COIN_FLIP) {
+                // Good ending!
+                console.log('Heads!');
+            } else {
+                // Bad ending.
+                console.log('Tails!');
+            }
+        });
     }
 }
 
