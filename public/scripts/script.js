@@ -8,6 +8,7 @@ $(function() {
         $('#nameField').val('');
     });
 
+    // Create a letter upon text generation completion from the server.
     socket.on('NameReceive', (data) => {
         createEnvelope(data[0], data[1]);
     });
