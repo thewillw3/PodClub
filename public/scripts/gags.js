@@ -2,10 +2,22 @@
  * Randomly display Goku on the main banner of the site.
  */
 function showGoku() {
-    const GOKU_CHANCE = 0.9;
+    const GOKU_CHANCE = 0.1;
+    const COIN_FLIP = 0.5;
 
-    if (Math.random() > GOKU_CHANCE) {
+    if (Math.random() < GOKU_CHANCE) {
         $('#goku').css({'display': 'inline'});
+
+        // Making Goku flip a coin when clicked!
+        $('#goku').click(() => {
+            if (Math.random() > COIN_FLIP) {
+                // Good ending!
+                console.log('Heads!');
+            } else {
+                // Bad ending.
+                console.log('Tails!');
+            }
+        });
     }
 }
 
@@ -19,7 +31,7 @@ function genPiccoloImg(time, designation) {
     const MAX_LEFT = 80, MAX_TOP = 70, MIN = 0;
     const LEFT = generateRandInt(MIN, MAX_LEFT), TOP = generateRandInt(MIN, MAX_TOP);
 
-    let img = $('<img>').attr('src', '../imgs/piccolo.jpg').addClass('piccolo');
+    let img = $('<img src="../imgs/piccolo.jpg" class="piccolo">');
     img.attr('id', designation);
     img.css({'top': TOP + 'vh', 'left': LEFT + 'vw'});
 

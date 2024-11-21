@@ -5,7 +5,7 @@
 body {
     font-family: "Nunito Sans";
 
-    background-color: #2b3452;
+    background-color: #21232b;
 
     padding: 0;
     margin: 0;
@@ -64,7 +64,7 @@ header a {
 .container {
     display: block;
 
-    padding: 60px 120px;
+    padding: 150px 19vw;
 
     color: #e9ebf5;
 }
@@ -80,7 +80,7 @@ div:nth-child(1 of .container) h2 {
 }
 
 div:nth-child(1 of .container) p {
-    margin: 0 0 10px 0;
+    margin: 0 0 20px 0;
 }
 
 div:nth-child(1 of .container) {
@@ -98,6 +98,13 @@ div:nth-child(odd of .container) {
 }
 
 /* Field stuff. */
+form {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
 #nameField {
     width: 30%;
     
@@ -108,20 +115,22 @@ div:nth-child(odd of .container) {
     font-size: 12pt;
 
     border: 2px solid #e9ebf5;
-    border-radius: 12px;
+    border-right: none;
+
+    border-radius: 12px 0 0 12px;
 
     padding: 8px 12px;
 }
 
 form button {
-    position: absolute;
-
-    transform: translate(-48px, 4px);
-
-    height: 34px;
-
     background-color: rgba(0, 0, 0, 0);
-    border: 0;
+
+    height: 42px;
+
+    border: 2px solid #e9ebf5;
+    border-left: none;
+
+    border-radius: 0 12px 12px 0;
 }
 
 form button:hover {
@@ -153,10 +162,6 @@ form img {
     transition: opacity 1s ease-in-out;
 }
 
-.fade-out {
-    opacity: 0;
-}
-
 .disclaimer {
     color: rgba(255, 255, 255, 0.4);
 
@@ -177,6 +182,7 @@ form img {
 
 #testimony li {
     display: flex;
+    flex-direction: column;
 
     text-align: center;
 
@@ -185,13 +191,103 @@ form img {
 
     margin-left: 20px;
 
-    padding: 40px;
+    padding: 20px;
     width: 33vw;
+    min-height: 40vh;
 
-    background-color: #142638;
-    border-radius: 10px;
+    background-color: #121518;
 }
 
 #testimony li:nth-child(1) {
     margin-left: 0;
+}
+
+#testimony li p {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    
+    min-height: 55%;
+
+    margin: 10px;
+}
+
+#testimony li img {
+    aspect-ratio: 1/1;
+}
+
+.quotes {
+    height: 30px;
+}
+
+.pfp {
+    height: 60px;
+    border-radius: 100px;
+}
+
+/* Envelope formatting. */
+#envelope {
+    transition: all 1s ease-in-out;
+}
+
+#envelope:hover {
+    cursor: pointer;
+}
+
+/* Letter formatting. */
+#letter {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: #e9ebf5;
+    color: black;
+
+    width: 50vw;
+    height: 50vh;
+
+    transform: translate(-50%, -50%) scale(0%);
+    transition: all 1s ease-in-out;
+
+    padding: 16px;
+}
+
+#end {
+    text-align: right;
+}
+
+/* Miscellaneous additions. */
+#pageCover {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    z-index: 10;
+
+    transition: opacity 0.5s ease-in-out;
+}
+
+.fade-in {
+    opacity: 1;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.fixed-centered {
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
 }
